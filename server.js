@@ -37,7 +37,7 @@ connection.connect(function(err)
 	if (err) throw err
 		console.log('You are now connected...');
 
-	connection.query('SELECT * FROM listequestion-reponse', function(err, results)
+	connection.query('SELECT * FROM liste question-reponse', function(err, results)
 	{
 		if (err) throw err
 			
