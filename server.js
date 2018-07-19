@@ -1,29 +1,17 @@
 var express = require('express');
+var app = express();
 var bodyParser = require('body-parser');
 var mysql = require('mysql');
-var app = express();
-var questionnaire = [];
+var contenu = [];
 
-
-app.listen(3400, function(){
-	console.log('listen on port 3400')
-});
-
-app.use('/questionnaire', express.static(__dirname + '/public'));
+app.use('/quiz', express.static(__dirname + '/public'));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-
-app.get('/', function(req, res){
-	res.send('Hello World!');
+app.listen(3000, function(){
+	console.log('listen on port 3000')
 });
-
-app.get('/', function(req, res){
-	res.sendfile('quiz.html');
-});
-
-
 
 var connection = mysql.createConnection({
 	host: 'localhost',
@@ -37,13 +25,13 @@ connection.connect(function(err)
 	if (err) throw err
 		console.log('You are now connected...');
 
-	connection.query('SELECT * FROM liste question-reponse', function(err, results)
+	connection.query('SELECT * FROM question', function(err, results)
 	{
 		if (err) throw err
 			
 				for (var i =0; i<results.length; i++) 
 				{
-					questionnaire.push(results[i]);
+					contenu.push(results[i]);
 				};
 			
 	});
@@ -53,6 +41,6 @@ connection.connect(function(err)
 
 
 app.get('/Question', function(req, res) {
-	res.json(questionnaire);
-	console.log(questionnaire);
+	res.json(contenu);
+	console.log(contenu);
 });

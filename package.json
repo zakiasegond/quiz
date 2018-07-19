@@ -4,9 +4,12 @@
   "description": "",
   "main": "server.js",
   "dependencies": {
-    "bootstrap": "^4.1.1",
+    "body-parser": "^1.18.3",
+    "bootstrap": "^4.1.2",
     "express": "^4.16.3",
-    "jquery": "^3.3.1"
+    "jquery": "^3.3.1",
+    "mysql": "^2.16.0",
+    "validatorjs": "^3.14.2"
   },
   "devDependencies": {},
   "scripts": {
@@ -14,5 +17,13 @@
     "start": "node server.js"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zakiasegond/quiz.git"
+  },
+  "bugs": {
+    "url": "https://github.com/zakiasegond/quiz/issues"
+  },
+  "homepage": "https://github.com/zakiasegond/quiz#readme"
 }
